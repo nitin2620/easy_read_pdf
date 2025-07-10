@@ -1,5 +1,4 @@
 import streamlit as st
-from PyPDF2 import PdfReader
 import chromadb
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.document_loaders import PyPDFLoader
