@@ -39,6 +39,7 @@ def extract_text_from_pdf(uploaded_file):
 # Page 1: Upload PDF
 if not st.session_state.uploaded:
     st.title("📄 Upload a PDF")
+    os.environ["STREAMLIT_HOME"] = "/tmp"
     uploaded_file = st.file_uploader("Upload your PDF file", type=["pdf"])
     
     st.chroma_client = chromadb.Client()
