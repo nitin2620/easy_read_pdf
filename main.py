@@ -7,6 +7,7 @@ from dotenv import load_dotenv
 import os
 import os
 from groq import Groq
+from chromadb.config import Settings
 
 # Load .env file
 load_dotenv()
@@ -42,7 +43,10 @@ if not st.session_state.uploaded:
     os.environ["STREAMLIT_HOME"] = "/tmp"
     uploaded_file = st.file_uploader("Upload your PDF file", type=["pdf"])
     
-    st.chroma_client = chromadb.Client()
+    st.chroma_client = chromadb.Client(Settings(
+    chroma_db_impl="duckdb+parquet",  # Use duckdb instead of sqlite
+    persist_directory=".chromadb"     # Optional: specify where to store the DB
+))
     try:
         st.collection = st.chroma_client.delete_collection(name="my_collection")
     except:
