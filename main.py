@@ -116,7 +116,7 @@ else:
 
         </system>
         '''
-        key = os.getenv("key")
+        # key = os.getenv("key")
         client = Groq(
             api_key=key,
         )
