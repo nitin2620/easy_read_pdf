@@ -17,7 +17,7 @@ from chromadb.config import Settings
 load_dotenv()
 
 # Access the keys
-key = st.secrets["OPENAI_API_KEY"]
+key = st.secrets["key"]
 
 
 
